@@ -71,7 +71,7 @@
 			background: url(strela1.png) no-repeat 0;
 			width: 50px;
 			height: 50px;
-			position: relative;
+			position: absolute;
 			background-size: 100%;
 			opacity: ;
 		}
@@ -92,21 +92,21 @@
 		}
 		#pravo{	
 			transform: rotate(180deg);
-			top: -70px; 
-			left: 80px; 
+			top: 0; 
+			left: 100px; 
 			right: 0; 
 			margin: 0 auto;
 		}
 		#levo{
-			top: -120px; 
-			left: -80px; 
+			top: 0; 
+			left: -100px; 
 			right: 0; 
 			margin: 0 auto;	
 		}
 		#probel{
 			background:none;
 			background-color: red;
-			top: -170px; 
+			top: 0; 
 			left: 0; 
 			right: 0;
 			margin: 0 auto;
@@ -144,24 +144,17 @@
 			document.getElementById('probel').onmouseover = function (event) {
 				b = probel;
 			}
-			
-			var buttonItems = document.querySelectorAll('.strelka'), 
-			index, button; 
-			for (index = 0; index < buttonItems.length; index++) { 
-				button = buttonItems[index]; 
-				button.addEventListener('mouseout', function (event) { 
-					clearInterval(time);
-				});
-			}
-
+			addEventListener('mouseout', function () {
+				clearInterval(time);
+			})
 			addEventListener('mouseover', function(){
-					console.log(123);
-				// time = setInterval(function(){
-					// dvig();
-				// }, 1000);
+				 time = setInterval(function(){
+					dvig();
+				 }, 1000);
 			});
 
 			function dvig() {
+				clearInterval(time);
 				if (b == verh) {
 						console.log('hui')
 				}
