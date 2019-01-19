@@ -77,40 +77,46 @@
 		}
 		#verh{		
 			top: -50px; 
-			left: 0; 
+			left: 100px; 
 			right: 0; 
-			margin: 0 auto;
 			transform: rotate(90deg);
 		}
 		#niz{		
 			transform: rotate(-90deg);
 			top: 50px; 
-			left: 0; 
+			left: 100px; 
 			right: 0; 
-			margin: 0 auto;
+			
 
 		}
 		#pravo{	
 			transform: rotate(180deg);
 			top: 0; 
-			left: 100px; 
+			left: 150px; 
 			right: 0; 
-			margin: 0 auto;
+			
 		}
 		#levo{
 			top: 0; 
-			left: -100px; 
+			left: 50px; 
 			right: 0; 
-			margin: 0 auto;	
+			
 		}
 		#probel{
 			background:none;
 			background-color: red;
 			top: 0; 
-			left: 0; 
+			left: 100px; 
 			right: 0;
-			margin: 0 auto;
 			opacity: .8;
+		}
+		#stop{
+			background-image: url(stop.png);
+			height: 50px;	
+			top: 100px;
+			left:100px;
+			right: 0;
+
 		}
 	</style>
 </head>
@@ -119,6 +125,7 @@
 		<div class="snar repeat"></div>
 	</div>
 	<div id="upr">
+	<div class="strelka" id="stop"></div>	
 	<div class="strelka"  id="verh"></div>
 	<div class="strelka" id="niz" ></div>
 	<div class="strelka" id="pravo" ></div>
@@ -144,9 +151,9 @@
 			document.getElementById('probel').onmouseover = function (event) {
 				b = probel;
 			}
-			addEventListener('mouseout', function () {
-				clearInterval(time);
-			})
+			document.getElementById('stop').onmouseover = function () {
+				b = stop;
+			}
 			addEventListener('mouseover', function(){
 				 time = setInterval(function(){
 					dvig();
@@ -169,6 +176,9 @@
 				}
 				if (b == probel) {
 					console.log('VISTREL')
+				}
+				if (b == stop) {
+					clearInterval(time);
 				}
 			}
 				/*pezda*/
