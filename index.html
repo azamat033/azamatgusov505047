@@ -110,22 +110,13 @@
 			right: 0;
 			opacity: .8;
 		}
-		#stop{
-			background-image: url(stop.png);
-			height: 50px;	
-			top: 100px;
-			left:100px;
-			right: 0;
-
-		}
 	</style>
 </head>
 <body>
 	<div class="tank repeat">
 		<div class="snar repeat"></div>
 	</div>
-	<div id="upr">
-	<div class="strelka" id="stop"></div>	
+	<div id="upr">	
 	<div class="strelka"  id="verh"></div>
 	<div class="strelka" id="niz" ></div>
 	<div class="strelka" id="pravo" ></div>
@@ -136,32 +127,36 @@
 			var b;
 			var time;
 
-			document.getElementById('verh').onmouseover = function (event) {
+			document.getElementById('verh').onmousedown = function (event) {
 				b = verh;
+				lol();
 			}
-			document.getElementById('niz').onmouseover = function (event) {
+			document.getElementById('niz').onmousedown = function (event) {
 				b = niz;
+				lol();
 			}
-			document.getElementById('pravo').onmouseover = function (event) {
+			document.getElementById('pravo').onmousedown = function (event) {
 				b = pravo;
+				lol();
 			}
-			document.getElementById('levo').onmouseover = function (event) {
+			document.getElementById('levo').onmousedown = function (event) {
 				b = levo;
+				lol();
 			}
-			document.getElementById('probel').onmouseover = function (event) {
+			document.getElementById('probel').onmousedown	 = function (event) {
 				b = probel;
+				lol();
 			}
-			document.getElementById('stop').onmouseover = function () {
-				b = stop;
-			}
-			addEventListener('mouseover', function(){
+			addEventListener('mouseup', function(){
+				 clearInterval(time);
+			});
+				function lol(argument) {
 				 time = setInterval(function(){
 					dvig();
 				 }, 1000);
-			});
-
+				}
+			
 			function dvig() {
-				clearInterval(time);
 				if (b == verh) {
 						console.log('hui')
 				}
@@ -177,11 +172,9 @@
 				if (b == probel) {
 					console.log('VISTREL')
 				}
-				if (b == stop) {
-					clearInterval(time);
-				}
+				
 			}
-				/*pezda*/
+			
 			
 </script>
 </body>
