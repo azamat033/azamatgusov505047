@@ -73,7 +73,6 @@
 			height: 50px;
 			position: absolute;
 			background-size: 100%;
-			opacity: ;
 		}
 		#verh{		
 			top: -50px; 
@@ -129,25 +128,27 @@
 			var levo = 0;
 			var verh = 0;
 			var tank = document.getElementsByClassName('tank')[0];
+			var scor = parseInt(prompt('Введите скорость интервала'),10);
+			var pix = parseInt(prompt('Введите кол-во пиксилей'),10);
 
 			document.getElementById('verh').onmousedown = function (event) {
-				b = verh;
+				b = 1;
 				lol();
 			}
 			document.getElementById('niz').onmousedown = function (event) {
-				b = niz;
+				b = 2;
 				lol();
 			}
 			document.getElementById('pravo').onmousedown = function (event) {
-				b = pravo;
+				b = 3;
 				lol();
 			}
 			document.getElementById('levo').onmousedown = function (event) {
-				b = levo;
+				b = 4;
 				lol();
 			}
 			document.getElementById('probel').onmousedown	 = function (event) {
-				b = probel;
+				b = 5;
 				lol();
 			}
 			addEventListener('mouseup', function(){
@@ -156,23 +157,34 @@
 				function lol(argument) {
 				 time = setInterval(function(){
 					dvig();
-				 }, 1000);
+				 }, scor);
 				}
 			
 			function dvig() {
-				if (b == verh) {
-						console.log('hui')
+				if (b === 1) {
+					tank.style.transform = "rotate(0)";
+					verh = verh - pix;
+					tank.style.top = verh + 'px';
+
 				}
-				if (b == niz) {
-					console.log('pezda')
+				if (b === 2) {
+					tank.style.transform = "rotate(180deg)";
+					verh = verh + pix;
+					tank.style.top = verh + 'px';
+
 				}
-				if (b == pravo) {
-					console.log('noga')
+				if (b === 3) {
+					tank.style.transform = "rotate(90deg)";
+					levo = levo + pix;
+					tank.style.left = levo + 'px';
 				}
-				if (b == levo) {
-					console.log('ruka')
+				if (b === 4) {
+					tank.style.transform = "rotate(-90deg)";
+					levo = levo - pix;				
+					tank.style.left = levo + 'px';
+
 				}
-				if (b == probel) {
+				if (b === 5) {
 					console.log('VISTREL')
 				}
 				
